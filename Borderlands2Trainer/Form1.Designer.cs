@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -69,6 +70,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -464,12 +466,24 @@
             this.checkBox9.Text = "change pos by (z,x,v,c,b,n)";
             this.checkBox9.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(19, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(174, 21);
+            this.label17.TabIndex = 41;
+            this.label17.Text = "Borderlands 2 trainer";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 563);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.checkBox9);
             this.Controls.Add(this.checkBox8);
             this.Controls.Add(this.button9);
@@ -562,6 +576,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.Label label17;
     }
 }
 
