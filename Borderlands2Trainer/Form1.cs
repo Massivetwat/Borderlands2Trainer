@@ -15,12 +15,12 @@ namespace Borderlands2Trainer
 {
     public partial class Form1 : Form
     {
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll")] // global hotkey GetAsyncKeyState import //
         static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
 
 
 
-        Mem meme = new Mem();
+        Mem meme = new Mem();       // These addresses might need to be updated, if you notice one that needs it make sure comment it on the youtube video // 
         public static string health = "Borderlands2.exe+0x016887B8,2C,19C,168,1B4,6C";
         public static string money = "Borderlands2.exe+0x016A9F5C,0,AC,6C,194,2A0";
         public static string ultimate = "Borderlands2.exe+0x016A4838,CC,264,344,1AC,6C";
@@ -38,8 +38,8 @@ namespace Borderlands2Trainer
         public static string sniper = "Borderlands2.exe+0x016887B8,2C,1A0,28,1B0,42C";
         public static string pistol = "Borderlands2.exe+0x01655768,198,364,18C,20,340,1B0,6AC";
         public static string noReload = "Borderlands2.exe+0x016887B8,28,198,14,144,3E4,0,A28";
-        public bool PO = false;
-        public bool threads = true;
+        
+        public bool threads = true; // kill switch bool // if set to false the threads will not proceed //
 
 
         public Form1()
@@ -50,45 +50,60 @@ namespace Borderlands2Trainer
         private void Form1_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
+
+            // I have learnt all my coding on the internet so don't butcher me in the comments =)// 
+            #region 
             Thread numbers = new Thread(numcalc);
-            numbers.Start();
+            
             Thread sniperAMMO = new Thread(sniperammo);
-            sniperAMMO.Start();
+            
             Thread shotgunAMMO = new Thread(shotgunammo);
-            shotgunAMMO.Start();
+            
             Thread smgAMMO = new Thread(smgammo);
-            smgAMMO.Start();
+            
             Thread pistolAMMO = new Thread(pistolammo);
-            pistolAMMO.Start();
+            
             Thread rifleAMMO = new Thread(rifleammo);
-            rifleAMMO.Start();
+            
             Thread rapidFIRE = new Thread(rapidfire);
-            rapidFIRE.Start();
+            
             Thread health = new Thread(hp);
-            health.Start();
+            
             Thread Ultimate = new Thread(ult);
-            Ultimate.Start();
+            
             Thread higher = new Thread(UP);
-            higher.Start();
+            
             Thread BC = new Thread(BACK);
-            BC.Start();
+            
             Thread forward = new Thread(FOR);
-            forward.Start();
+            
             Thread LW = new Thread(LEFT);
-            LW.Start();
+            
             Thread RW = new Thread(RIGHT);
-            RW.Start();
+            
             Thread DW = new Thread(DOWN);
             DW.Start();
-
+            numbers.Start();
+            sniperAMMO.Start();
+            shotgunAMMO.Start();
+            smgAMMO.Start();
+            pistolAMMO.Start();
+            rifleAMMO.Start();
+            rapidFIRE.Start();
+            health.Start();
+            Ultimate.Start();
+            higher.Start();
+            forward.Start();
+            BC.Start();
+            LW.Start();
+            RW.Start();
+            #endregion
             int PID = meme.GetProcIdFromName("Borderlands2");
             if (PID > 0)
             {
                 
-                meme.OpenProcess(PID);
+                meme.OpenProcess(PID); // First try to find the process without clicking the button //
                 label16.Text = PID.ToString();
-                
-               
 
             }
             else
@@ -313,19 +328,19 @@ namespace Borderlands2Trainer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+             // This button is if you want to restart the game and still be able to use the same cheat window // 
             int PID = meme.GetProcIdFromName("Borderlands2");
             if (PID > 0 )
             {
                 MessageBox.Show("Found process, now attaching..");
                 meme.OpenProcess(PID);
-                PO = false;
+                
                 
             }
             else
             {
                 MessageBox.Show("Couldn't find process");
-                PO = false;
+                
             }
         }
 
@@ -382,9 +397,8 @@ namespace Borderlands2Trainer
 
         private void button9_Click(object sender, EventArgs e)
         {
-            threads = false;
-            PO = false;
-            Application.Exit();
+            threads = false; // this button closes the running threads and kills the application // 
+            Application.Exit(); // the default close button will not close the threads // 
         }
 
         private void button7_Click(object sender, EventArgs e)
